@@ -44,7 +44,7 @@ class XCarSpider(object):
         :return: None
         """
         cars = self.__get_car_url(page)  # 获取某一页的汽车url列表。
-        for car in cars[:2]:
+        for car in cars:
             model_urls, car_detail = self.__get_model_urls_and_car_detail(car)  # 获取型号的url，名字，品牌。
 
             res = {}
@@ -60,7 +60,7 @@ class XCarSpider(object):
                 res['models'] = all_models_detail
             self.__save_to_file(res)
             self.__print_progress()
-            time.sleep(5)
+            time.sleep(3)
 
     def __print_progress(self):
         # 打印进度。
